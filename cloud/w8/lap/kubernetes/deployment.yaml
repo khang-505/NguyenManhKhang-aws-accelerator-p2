@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xbrain-app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: xbrain
+
+  template:
+    metadata:
+      labels:
+        app: xbrain
+
+    spec:
+      containers:
+      - name: nginx
+
+        image: nginx:latest
+
+        command:
+        - /bin/sh
+        - -c
+
+        args:
+        - |
+          echo "<html>
+          <head>
+          <meta charset="UTF-8">
+            <title>XBrain</title>
+          </head>
+          <body style='font-family:Arial;text-align:center;margin-top:100px'>
+            <h1>Chào XBrain 🚀</h1>
+            <p>Kubernetes on AWS bằng Terraform + Minikube</p>
+          </body>
+          </html>" > /usr/share/nginx/html/index.html
+
+          nginx -g 'daemon off;'
+
+        ports:
+        - containerPort: 80
