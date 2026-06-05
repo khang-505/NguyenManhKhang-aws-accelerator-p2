@@ -40,15 +40,16 @@ http://<alb_dns_name>
 - sau khi apply xong sẽ hiện ra alb dns name 
 ![giao diện khi chạy xong](/cloud/w8/lap/image/trangchu.png)
 - sao chép alb dns name đưa vào trình duyệt sẽ thấy giao diện
-
-
+![chứng minh bằng ssh](/cloud/w8/lap/image/k8sonec2.png)
+- minh chứng App thực sự chạy trong K8s, không cài thẳng EC2
 
 ## Dọn sạch
 
 ```bash
-terraform destroy -auto-approve
+terraform destroy 
 ```
-
+![bằng chứng sau khi chạy terraform destroy](/cloud/w8/lap/image/destroy.png)
+- hiển thị sau khi chạy terraform destroy
 ## Các file quan trọng
 
 - `main.tf`: định nghĩa infra AWS và provision Kubernetes.
